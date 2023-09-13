@@ -24,20 +24,25 @@ function App() {
     // out of DroppableLists
     if (!destination) return;
 
+    const srcId = source.droppableId;
+    const srcIndex = source.index;
+    const destId = destination.droppableId;
+    const destIndex = destination.index;
+
     // didn't move
-    if (
-      source.droppableId === destination.droppableId &&
-      source.index === destination.index
-    ) {
-      return;
-    }
+    if (srcId === destId && srcIndex === destIndex) return;
 
     // dropped from and dragged to the same DroppableList
-    if (source.droppableId === destination.droppableId) {
-      const todosArray = Array.from(data.todos);
-      const [item] = todosArray.splice(source.index, 1);
-      todosArray.splice(destination.index, 0, item);
-      setData({ ...data, todos: todosArray });
+    if (srcId === destId) {
+      const sourceList = data[srcId];
+      const destinationList = data[destId];
+      const [item] = sourceList.splice(srcIndex, 1);
+      destinationList.splice(destIndex, 0, item);
+      setData({
+        ...data,
+        [srcId]: sourceList,
+        [destId]: destinationList,
+      });
     }
     // dropped from and dragged to the same DroppableList
     else {

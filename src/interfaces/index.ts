@@ -7,4 +7,5 @@ export interface IData {
   todos: IItem[];
   doing: IItem[];
   done: IItem[];
+  [key: string]: IItem[];
 }
