@@ -24,6 +24,14 @@ function App() {
     // out of DroppableLists
     if (!destination) return;
 
+    // didn't move
+    if (
+      source.droppableId === destination.droppableId &&
+      source.index === destination.index
+    ) {
+      return;
+    }
+
     // dropped from and dragged to the same DroppableList
     if (source.droppableId === destination.droppableId) {
       const todosArray = Array.from(data.todos);
