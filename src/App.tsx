@@ -34,6 +34,8 @@ function App() {
     // dropped from and dragged to the same DroppableList
     else {
       console.log("different");
+      // const item = data[source.droppableId][source.index];
+      // console.log(item);
     }
   };
 
