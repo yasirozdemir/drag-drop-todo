@@ -32,24 +32,16 @@ function App() {
     // didn't move
     if (srcId === destId && srcIndex === destIndex) return;
 
-    // dropped from and dragged to the same DroppableList
-    if (srcId === destId) {
-      const sourceList = data[srcId];
-      const destinationList = data[destId];
-      const [item] = sourceList.splice(srcIndex, 1);
-      destinationList.splice(destIndex, 0, item);
-      setData({
-        ...data,
-        [srcId]: sourceList,
-        [destId]: destinationList,
-      });
-    }
-    // dropped from and dragged to the same DroppableList
-    else {
-      console.log("different");
-      // const item = data[source.droppableId][source.index];
-      // console.log(item);
-    }
+    const sourceList = data[srcId];
+    const destinationList = data[destId];
+
+    const [item] = sourceList.splice(srcIndex, 1);
+    destinationList.splice(destIndex, 0, item);
+    setData({
+      ...data,
+      [srcId]: sourceList,
+      [destId]: destinationList,
+    });
   };
 
   return (
@@ -58,8 +50,8 @@ function App() {
         <div className="flex flex-col lg:flex-row flex-wrap gap-8">
           <DragDropContext onDragEnd={handleDragEnd}>
             <DroppableList list={data.todos} title={"TODOs"} />
-            {/* <DroppableList list={[]} title={"Doing"} />
-            <DroppableList list={[]} title={"Done"} /> */}
+            <DroppableList list={data.doing} title={"Doing"} />
+            <DroppableList list={data.done} title={"Done"} />
           </DragDropContext>
         </div>
         <Footer />
