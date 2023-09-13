@@ -53,8 +53,8 @@ function App() {
         <div className="flex flex-col lg:flex-row flex-wrap gap-8">
           <DragDropContext onDragEnd={handleDragEnd}>
             <DroppableList list={data.todos} title={"TODOs"} />
-            <DroppableList list={[]} title={"Doing"} />
-            <DroppableList list={[]} title={"Done"} />
+            {/* <DroppableList list={[]} title={"Doing"} />
+            <DroppableList list={[]} title={"Done"} /> */}
           </DragDropContext>
         </div>
         <Footer />
