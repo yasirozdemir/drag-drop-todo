@@ -1,10 +1,10 @@
 import { Draggable } from "react-beautiful-dnd";
-import { ITodo } from "../interfaces";
+import { IItem } from "../interfaces";
 
 interface props {
-  todo: ITodo;
+  todo: IItem;
   index: number;
-  arr: ITodo[];
+  arr: IItem[];
 }
 
 const DraggableListItem = ({ todo, index, arr }: props) => {

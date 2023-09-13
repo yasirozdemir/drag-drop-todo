@@ -1,9 +1,9 @@
 import { Droppable } from "react-beautiful-dnd";
-import { ITodo } from "../interfaces";
+import { IItem } from "../interfaces";
 import DraggableListItem from "./DraggableListItem";
 
 interface props {
-  list: ITodo[];
+  list: IItem[];
   title: string;
 }
 
@@ -20,7 +20,7 @@ const DroppableList = ({ list, title }: props) => {
             {...provided.droppableProps}
             ref={provided.innerRef}
           >
-            {list?.map((todo, index, arr) => {
+            {list.map((todo, index, arr) => {
               return (
                 <DraggableListItem
                   key={todo.id}
