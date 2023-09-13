@@ -1,9 +1,9 @@
 import { Droppable } from "react-beautiful-dnd";
-import { ITodo } from "../interfaces";
+import { IItem } from "../interfaces";
 import DraggableListItem from "./DraggableListItem";
 
 interface props {
-  list: ITodo[];
+  list: IItem[];
   title: string;
 }
 
