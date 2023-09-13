@@ -1,9 +1,5 @@
-export interface IItem {
+export interface ITodo {
   id: string;
   text: string;
   order: number;
-}
-
-export interface IData {
-  [key: string]: { todos: IItem[]; doing: IItem[]; done: IItem[] };
 }
