@@ -4,17 +4,16 @@ import DraggableListItem from "./DraggableListItem";
 
 interface props {
   list: ITodo[];
-  listId: string;
   title: string;
 }
 
-const DroppableList = ({ list, listId, title }: props) => {
+const DroppableList = ({ list, title }: props) => {
   return (
     <div className="bg-white pt-4 pb-2 rounded-lg shadow-lg">
       <h1 className="text-3xl text-center font-bold mb-2 pb-2 border-b-2 border-gray-400">
         {title}
       </h1>
-      <Droppable droppableId={listId}>
+      <Droppable droppableId={title.toLowerCase()}>
         {(provided) => (
           <ul
             className="w-full"
