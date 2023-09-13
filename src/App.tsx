@@ -1,66 +1,11 @@
 import { useState } from "react";
-import {
-  DragDropContext,
-  DropResult,
-  Droppable,
-  Draggable,
-} from "react-beautiful-dnd";
-
-const dummyTodos = [
-  {
-    id: "1",
-    text: "Debug that elusive bug",
-    order: 0,
-  },
-  {
-    id: "2",
-    text: "Git commit -m 'I have no idea what I'm doing'",
-    order: 1,
-  },
-  {
-    id: "3",
-    text: "Defeat the infinite scroll dragon",
-    order: 2,
-  },
-  {
-    id: "4",
-    text: "Optimize code for 'world domination'",
-    order: 3,
-  },
-  {
-    id: "5",
-    text: "Take on the CSS spaghetti monster",
-    order: 4,
-  },
-  {
-    id: "6",
-    text: "Battle with merge conflicts",
-    order: 5,
-  },
-  {
-    id: "7",
-    text: "Survive endless meetings",
-    order: 6,
-  },
-  {
-    id: "8",
-    text: "Refactor code: turn spaghetti into lasagna",
-    order: 7,
-  },
-  {
-    id: "9",
-    text: "Deploy to production: hope for the best",
-    order: 8,
-  },
-  {
-    id: "10",
-    text: "Conquer imposter syndrome",
-    order: 9,
-  },
-];
+import { DragDropContext, DropResult, Droppable } from "react-beautiful-dnd";
+import { todosArray } from "./data";
+import { ITodo } from "./interfaces";
+import DraggableListItem from "./components/DraggableListItem";
 
 function App() {
-  const [todos, setTodos] = useState(dummyTodos);
+  const [todos, setTodos] = useState<ITodo[]>(todosArray);
 
   const handleDragEnd = (result: DropResult) => {
     // source -> the Droppable component where the items is dragged
@@ -99,25 +44,14 @@ function App() {
                   {...provided.droppableProps}
                   ref={provided.innerRef}
                 >
-                  {todos?.map(({ id, text }, index, arr) => {
+                  {todos?.map((todo, index, arr) => {
                     return (
-                      <Draggable key={id} draggableId={id} index={index}>
-                        {(provided) => (
-                          <li
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            className={`flex bg-white border-b border-gray-300 hover:bg-gray-200 ${
-                              arr.length - 1 === index ? "border-hidden" : ""
-                            }`}
-                          >
-                            <label className="flex items-center py-2 px-4 pr-0 w-1/12">
-                              <input type="checkbox" className="w-5 h-5" />
-                            </label>
-                            <p className="py-2 px-4 w-11/12">{text}</p>
-                          </li>
-                        )}
-                      </Draggable>
+                      <DraggableListItem
+                        key={todo.id}
+                        todo={todo}
+                        index={index}
+                        arr={arr}
+                      />
                     );
                   })}
                   {/* provided.placeholder prevents the next html tag to change position while dragging an item */}
