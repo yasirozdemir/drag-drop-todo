@@ -46,8 +46,8 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100 px-2 py-8 lg:px-0">
-        <div className="flex flex-col lg:flex-row flex-wrap gap-8">
+      <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100 px-2 py-8 lg:px-8">
+        <div className="flex flex-col justify-center lg:flex-row flex-wrap gap-8 w-full md:w-[80%]">
           <DragDropContext onDragEnd={handleDragEnd}>
             <DroppableList list={data.todos} title={"TODOs"} />
             <DroppableList list={data.doing} title={"Doing"} />

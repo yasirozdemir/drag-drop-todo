@@ -26,23 +26,25 @@ export const initialData: IData = {
       id: "6",
       text: "Battle with merge conflicts",
     },
+  ],
+  doing: [
     {
       id: "7",
       text: "Survive endless meetings",
-    },
-    {
-      id: "8",
-      text: "Refactor code: turn spaghetti into lasagna",
-    },
-    {
-      id: "9",
-      text: "Deploy to production: hope for the best",
     },
     {
       id: "10",
       text: "Conquer imposter syndrome",
     },
   ],
-  doing: [],
-  done: [],
+  done: [
+    {
+      id: "9",
+      text: "Deploy to production: hope for the best",
+    },
+    {
+      id: "8",
+      text: "Refactor code: turn spaghetti into lasagna",
+    },
+  ],
 };

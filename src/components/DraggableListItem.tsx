@@ -14,7 +14,7 @@ const DraggableListItem = ({ todo, index }: props) => {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="flex bg-white border-b border-gray-300 hover:bg-gray-200"
+          className="bg-white border-b border-gray-300 hover:bg-gray-200"
         >
           <p className="py-2 px-4">{todo.text}</p>
         </li>
