@@ -1,5 +1,6 @@
-import { Droppable } from "react-beautiful-dnd";
-import { IItem } from "../interfaces";
+import React from "react";
+import { Droppable, DroppableProvided } from "react-beautiful-dnd";
+import { IItem } from "@interfaces/index";
 import DraggableListItem from "./DraggableListItem";
 
 interface props {
@@ -14,7 +15,7 @@ const DroppableList = ({ list, title }: props) => {
         {title}
       </h1>
       <Droppable droppableId={title.toLowerCase()}>
-        {(provided) => (
+        {(provided: DroppableProvided) => (
           <ul
             className="w-full h-full min-h-[15rem]"
             {...provided.droppableProps}

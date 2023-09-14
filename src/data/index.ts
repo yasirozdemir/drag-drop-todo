@@ -1,4 +1,4 @@
-import { IData } from "../interfaces";
+import { IData } from "@interfaces/index";
 
 export const initialData: IData = {
   todos: [

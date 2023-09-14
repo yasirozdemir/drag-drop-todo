@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { initialData } from "./data";
 import { IData } from "./interfaces";

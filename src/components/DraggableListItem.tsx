@@ -1,5 +1,6 @@
-import { Draggable } from "react-beautiful-dnd";
-import { IItem } from "../interfaces";
+import React from "react";
+import { Draggable, DraggableProvided } from "react-beautiful-dnd";
+import { IItem } from "@interfaces/index";
 
 interface props {
   todo: IItem;
@@ -9,12 +10,12 @@ interface props {
 const DraggableListItem = ({ todo, index }: props) => {
   return (
     <Draggable key={todo.id} draggableId={todo.id} index={index}>
-      {(provided) => (
+      {(provided: DraggableProvided) => (
         <li
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="bg-white border-b border-gray-300 hover:bg-gray-200"
+          className="flex bg-white border-b border-gray-300 hover:bg-gray-200"
         >
           <p className="py-2 px-4">{todo.text}</p>
         </li>
